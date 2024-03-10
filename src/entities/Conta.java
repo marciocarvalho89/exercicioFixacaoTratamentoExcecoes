@@ -49,15 +49,20 @@ public class Conta {
 	}
 	
 	public void saque(double quantia) {
-		if (saldo >= quantia && quantia <= limiteDeSaque) {
+		validarSaque(quantia);
 		saldo -= quantia;
 	    }
-		else if(saldo < quantia) {
+		else 
+    
+	}
+
+	public void validarSaque(double quantia){
+		if(saldo < quantia) {
 			throw new MyException("Saldo insuficiente!");
 		}
-		else {
+		else if (quantia > limiteDeSaque) {
 			throw new MyException("A quantia é maior do que o limite de saque!");
 		}
-    
+
 	}	
 }
